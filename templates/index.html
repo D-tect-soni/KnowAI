@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KnowAI | Universal Knowledge Assistant</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-logo">✦</div>
+                <div>
+                    <h2>KnowAI</h2>
+                    <span>Knowledge Assistant</span>
+                </div>
+            </div>
+
+            <button class="new-chat" onclick="newChat()">
+                <span>＋</span>
+                New Chat
+            </button>
+
+            <div class="history-section">
+
+                <p class="section-title">RECENT</p>
+
+                <div class="history-item">
+                    <span>◌</span>
+                    What is Python?
+                </div>
+
+                <div class="history-item">
+                    <span>◌</span>
+                    How does WiFi work?
+                </div>
+
+                <div class="history-item">
+                    <span>◌</span>
+                    History of telephone
+                </div>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <button class="sidebar-button">
+                    ⚙️
+                    <span>Settings</span>
+                </button>
+
+                <button class="sidebar-button">
+                    ❔
+                    <span>Help</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <div class="mobile-brand">
+                    <div class="brand-logo">✦</div>
+                    <strong>KnowAI</strong>
+                </div>
+
+                <div class="top-actions">
+
+                    <button id="themeButton" onclick="toggleTheme()">
+                        🌙
+                    </button>
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        Local AI
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CHAT AREA -->
+            <section class="chat-area" id="chatArea">
+
+                <!-- WELCOME -->
+                <div class="welcome" id="welcome">
+
+                    <div class="welcome-icon">
+                        ✦
+                    </div>
+
+                    <h1>
+                        What do you want to
+                        <span>know?</span>
+                    </h1>
+
+                    <p>
+                        Ask KnowAI anything. Explore people, technology,
+                        science, history, places, objects and more.
+                    </p>
+
+
+                    <!-- SUGGESTIONS -->
+                    <div class="suggestions">
+
+                        <button onclick="useSuggestion('Who developed the telephone?')">
+                            <span>📞</span>
+                            <div>
+                                <strong>Telephone</strong>
+                                <small>Who developed it?</small>
+                            </div>
+                        </button>
+
+                        <button onclick="useSuggestion('How does WiFi work?')">
+                            <span>📡</span>
+                            <div>
+                                <strong>WiFi</strong>
+                                <small>How does it work?</small>
+                            </div>
+                        </button>
+
+                        <button onclick="useSuggestion('What is Python programming language?')">
+                            <span>🐍</span>
+                            <div>
+                                <strong>Python</strong>
+                                <small>What is it?</small>
+                            </div>
+                        </button>
+
+                        <button onclick="useSuggestion('Tell me about the Taj Mahal.')">
+                            <span>🏛️</span>
+                            <div>
+                                <strong>Taj Mahal</strong>
+                                <small>History & facts</small>
+                            </div>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MESSAGES -->
+                <div id="messages"></div>
+
+            </section>
+
+
+            <!-- INPUT AREA -->
+            <div class="input-wrapper">
+
+                <div id="loading" class="loading"></div>
+
+                <div class="input-box">
+
+                    <textarea
+                        id="question"
+                        rows="1"
+                        placeholder="Ask anything..."
+                        onkeydown="handleEnter(event)"
+                    ></textarea>
+
+                    <div class="input-actions">
+
+                        <button class="input-icon" title="Attach">
+                            ＋
+                        </button>
+
+                        <div class="input-right">
+
+                            <button class="mic-button" title="Voice">
+                                🎙️
+                            </button>
+
+                            <button
+                                class="send-button"
+                                onclick="askQuestion()"
+                                title="Send"
+                            >
+                                ↑
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <p class="disclaimer">
+                    KnowAI can make mistakes. Always verify important information.
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
