@@ -1,5 +1,3 @@
 Flask
+google-genai
 python-dotenv
-requests
-mysql-connector-python
-ollama
